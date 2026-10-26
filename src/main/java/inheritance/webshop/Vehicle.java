@@ -19,10 +19,10 @@ package inheritance.webshop;
  *
  * Read more at https://dev.java/learn/inheritance/
  */
-public class Vehicle {
-
-    public Vehicle(String title, String description, double price, String manufacturer, String model,
-            int year) {
+public class Vehicle extends Product {
+    private String manufacturer;
+    private String model;
+    private int year;
         /*
          * TODO: complete the constructor
          *
@@ -30,5 +30,45 @@ public class Vehicle {
          * inherited instance variables (title, description and price). The other three
          * parameters should be stored in new instance variables in this class.
          */
+    public Vehicle(String title, String description, double price, String manufacturer, String model, int year) {
+        super(title, description, price);
+        this.manufacturer = manufacturer;
+        this.model = model;
+        this.year = year;
     }
+    
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle [manufacturer=" + manufacturer + ", model=" + model + ", year=" + year + ", getTitle()="
+                + getTitle() + ", getDescription()=" + getDescription() + ", getPrice()=" + getPrice() + "]";
+    }
+
+   
+
+   
+    
 }
