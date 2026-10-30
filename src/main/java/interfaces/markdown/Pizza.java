@@ -21,12 +21,23 @@ import java.util.List;
  *
  * Price: 10.90
  */
-public class Pizza {
+public class Pizza implements MarkdownExport {
 
     private final String name;
     private final double price;
     private final List<String> toppings;
 
+    public String exportMarkdown(){
+        String markdown = "# " + name + "\n\n" + "Toppings:\n"; 
+        
+        for (String string : toppings) {
+            markdown += "- " + toppings + "\n\n"; 
+        }
+        markdown += "Price: " + price;
+
+        return markdown;
+    }
+    
     public Pizza(String name, double price, List<String> toppings) {
         this.name = name;
         this.price = price;
