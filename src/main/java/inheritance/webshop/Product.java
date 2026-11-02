@@ -1,5 +1,7 @@
 package inheritance.webshop;
 
+import interfaces.markdown.MarkdownExport;
+
 /**
  * This class represents products in a webshop application. The class will be
  * used as a base class for various product types in the next parts of the
@@ -20,13 +22,16 @@ package inheritance.webshop;
  * Note that this class itself does not utilize inheritance, but it will
  * extended by other classes in the exercise.
  */
-public class Product {
+public class Product implements MarkdownExport {
 
     private String title;
     private String description;
     private double price;
 
-    
+    @Override
+    public String exportMarkdown() {
+        return "# " + title + "\n\nDescription: " + description + "\n\nPrice: " + price;
+    }
 
     public Product(String title, String description, double price) {
         this.title = title;
@@ -45,7 +50,6 @@ public class Product {
     public double getPrice() {
         return price;
     }
-    
 
     public void setTitle(String tittle) {
         this.title = tittle;
@@ -63,5 +67,5 @@ public class Product {
     public String toString() {
         return "Product [tittle=" + title + ", description=" + description + ", price=" + price + "]";
     }
-    
+
 }

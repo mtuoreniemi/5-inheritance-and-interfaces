@@ -2,6 +2,7 @@ package interfaces.markdown;
 
 import java.util.List;
 
+
 /**
  * This class represents pizzas. A pizza has a name and a price as well as a
  * list of toppings. Each topping is represented by a string, which you can
@@ -27,14 +28,15 @@ public class Pizza implements MarkdownExport {
     private final double price;
     private final List<String> toppings;
 
-    public String exportMarkdown(){
-        String markdown = "# " + name + "\n\n" + "Toppings:\n"; 
-        
-        for (String string : toppings) {
-            markdown += "- " + toppings + "\n\n"; 
-        }
-        markdown += "Price: " + price;
+    @Override
+    public String exportMarkdown() {
+        String markdown = "# " + name + "\n\nToppings:\n";
 
+        for (String topping : toppings) {
+            markdown += "- " + topping + "\n";
+        }
+
+        markdown += "\nPrice: " + price;
         return markdown;
     }
     
@@ -55,4 +57,5 @@ public class Pizza implements MarkdownExport {
     public List<String> getToppings() {
         return toppings;
     }
+
 }
